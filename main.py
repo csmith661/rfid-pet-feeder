@@ -28,14 +28,13 @@ left_servo = PWM(Pin(12))
 left_servo.freq(50)
 left_servo.duty_u16(5000)
 
+
     
 
 while True:
     reader.init()
     (stat, tag_type) = reader.request(reader.REQIDL)
     
-    red_led.value(1)
-    green_led.value(0)
     
     if stat == reader.OK:
         (stat, uid) = reader.SelectTagSN()
@@ -50,15 +49,12 @@ while True:
             if card in white_list:
                 green_led.value(1)
                 red_led.value(0)
-                setLid('open', right_servo, left_servo, stat, lid_open, lid_closed, lid_speed)
+                setLid('open', right_servo, left_servo, lid_open, lid_closed, lid_speed, lid_increment)
+                print('opened')
                 utime.sleep_ms(5000)
                 
-            else:
-                red_led.value(1)
-                green_led.value(0)
-                setLid('closed', right_servo, left_servo, stat, lid_open, lid_closed, lid_speed)
+    else:
+        red_led.value(1)
+        green_led.value(0)
+        setLid('closed', right_servo, left_servo, lid_open, lid_closed, lid_speed, lid_increment)
                 
-               
-                
-    
- 

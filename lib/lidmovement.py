@@ -1,7 +1,8 @@
 from time import sleep
 
 
-def setLid(intended_status, right_servo, left_servo, stat, lid_open, lid_closed, lid_speed):
+
+def setLid(intended_status, right_servo, left_servo, lid_open, lid_closed, lid_speed, lid_increment):
     
     def threshold (percent):
         return (lid_open - lid_closed) * percent + lid_closed
@@ -25,9 +26,6 @@ def setLid(intended_status, right_servo, left_servo, stat, lid_open, lid_closed,
                 sleep(lid_speed*2)
             if(right_position <= threshold(0.5)):
                 sleep(lid_speed*4)
-                
-            if(stat == reader.OK):
-                break
             
     if intended_status == 'open':
         
