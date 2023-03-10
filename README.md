@@ -1,6 +1,6 @@
 # rfid-pet-feeder
 Raspberry Pi Pico; MFRC522 RFID; PWM Servos; Actuates a lid for a pet feeder based on the RFID tag implanted in the pet or attached to the pet's collar(best result)
-
+MICROPYTHON
 
 Hardware: 
  Raspberry Pi Pico
@@ -26,6 +26,25 @@ Hardware:
     MOSI Pin 3
     CS Pin 1
     rst null
+ 
+ QUICK START:
+ 
+  Clone repository into Thonny(RP2 IDE)
+  
+  Necessary files to save to RP2:
+   main.py
+   lib  //lib is the necessary file name for accessible modules in micropython
+    mfrc522.py
+    lidmovement.py
+  
+   To properly whitelist the RFID individual rfid cards, you will have to run the initial program within the Thonny IDE and add uncomment the else: print(card)  statement in main.py. This will print the unique ID for your RFID tag to the shell.
+  
+  Wire up the RP2 to above Pins
+  
+  
+ 
+ 
+ 
  
  
  //Schematic will be inlcuded in future repository
